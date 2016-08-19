@@ -1,6 +1,6 @@
 {
   "name": "poketrade",
-  "private": true,
+  "private": false,
   "version": "0.0.0",
   "description": "a Sails application",
   "keywords": [],
@@ -30,8 +30,8 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/taovangmobile/poketrade.git"
+    "url": "git://github.com/kingasawa/poketrade.git"
   },
-  "author": "taovangmobile",
+  "author": "kingasawa",
   "license": ""
 }
