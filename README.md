@@ -1,4 +1,4 @@
 # poketrade
 
-a [Sails](http://sailsjs.org) application
-# poketrade
+Using [Sails](http://sailsjs.org) Framework
+> by Kingasawa
