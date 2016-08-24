@@ -2,6 +2,11 @@
 .navbar {
   margin-bottom: 0;
   border-radius: 0;
+
+}
+.jumbotron {
+  background:#4b8c95;
+  color:#f5e1ca !important;
 }
 
 /* Add a gray background color and some padding to the footer */

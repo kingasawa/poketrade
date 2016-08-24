@@ -1,5 +1,5 @@
 {
-  "name": "poketrade",
+  "name": "vani",
   "private": false,
   "version": "0.0.0",
   "description": "a Sails application",
@@ -30,7 +30,7 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/kingasawa/poketrade.git"
+    "url": "git://github.com/kingasawa/forvani.git"
   },
   "author": "kingasawa",
   "license": ""
