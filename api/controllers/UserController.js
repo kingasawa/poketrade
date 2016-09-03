@@ -34,6 +34,18 @@ module.exports = {
     req.session.destroy(function() {
       res.redirect('/trangchu');
     });
+  },
+  register: (req, res) => {
+    //Kiểm tra xem data gửi đến từ client (main.js xử lý) có đúng là socket không?
+    if (!req.isSocket) {return res.badRequest();}
+
+    let params = req.allParams();
+    sails.log('all params', params);
+    User.create({username:params.username,password: params.password,name: params.name}).exec(function() {
+      sails.sockets.join(req, params.username);
+      sails.sockets.broadcast(params.username,'user/registered');
+      return res.ok();
+    })
   }
 };
 

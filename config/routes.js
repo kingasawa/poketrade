@@ -35,9 +35,12 @@ module.exports.routes = {
   '/': {
     view: 'homepage'
   },
-  'trangchu': {
+  '/trangchu': {
     view: 'homepage'
-  }
+  },
+  '/register': 'LoginController.register',
+  '/logout': 'UserController.logout'
+  
 
   /***************************************************************************
   *                                                                          *
