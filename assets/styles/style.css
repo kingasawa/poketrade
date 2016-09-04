@@ -4,6 +4,11 @@
   border-radius: 0;
 
 }
+.sidenav {
+  padding-top: 20px;
+  background-color: #f1f1f1;
+
+}
 .jumbotron {
   background:#4b8c95;
   color:#f5e1ca !important;

@@ -38,9 +38,19 @@ module.exports.routes = {
   '/trangchu': {
     view: 'homepage'
   },
+  '/admin': {
+    view: 'admin/index'
+  },
   '/register': 'LoginController.register',
-  '/logout': 'UserController.logout'
-  
+  '/logout': 'UserController.logout',
+  '/admin/post': 'PostController.allposts',
+  '/admin/post/:id': 'PostController.postid',
+  '/admin/thread': 'ThreadController.allthreads',
+  '/admin/thread/:id': 'ThreadController.threadid',
+  '/admin/user': 'UserController.allusers',
+  '/admin/user/:id': 'UserController.userid'
+
+
 
   /***************************************************************************
   *                                                                          *
