@@ -11,14 +11,31 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><a href="/trangchu">Trang Chủ</a></li>
-        <li><a href="#">Hình Ảnh</a></li>
-        <li><a href="#">Video</a></li>
-        <li><a href="#">Tâm sự của Ba</a></li>
-        <li><a href="#">Tâm sự của Mẹ</a></li>
+        <li><a href="#">Menu 1</a></li>
+        <li><a href="#">Menu 2</a></li>
+        <li><a href="#">Menu 3</a></li>
+        <li><a href="#">Menu 4</a></li>
       </ul>
+      <% if(!req.session.user_id){ %>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Đăng Nhập</a></li>
       </ul>
+      <% } else { %>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-list"></span> <%= req.session.user.name %> <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <% if(req.session.user.group == 'Admin'){ %>
+            <li><a href="/admin"><span class="glyphicon glyphicon-tasks"></span> Đến trang Admin</a></li>
+            <% } else { %>
+            <li><a href="/admin/user/<%= req.session.user.id %>"><span class="glyphicon glyphicon-tasks"></span> Chỉnh sửa thông tin</a></li>
+            <% } %>
+            <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Đăng Xuất</a></li>
+          </ul>
+        </li>
+
+
+      </ul>
+      <% } %>
     </div>
   </div>
 </nav>

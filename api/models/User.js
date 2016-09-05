@@ -21,7 +21,7 @@ module.exports = {
     },
     group: {
       type: 'string',
-      enum: ['member','moderator','admin'],
+      enum: ['Member','Moderator','Admin'],
       defaultsTo: 'member'
     },
     name: {
@@ -54,7 +54,7 @@ module.exports = {
       password = md5(password);
       sails.log('Thông tin đăng nhập {email, password}', {email, password});
       User.findOne({email, password}).exec(function (err, res) {
-        sails.log('thành công', res);
+        sails.log('user data', res);
         if (err)
           reject(err);
         if (typeof res == 'undefined'){

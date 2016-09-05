@@ -17,6 +17,7 @@ module.exports = {
 
       let session_id = req.signedCookies['sails.sid'];
 
+
       sails.sockets.join(req, 'logged'); // Đưa user vừa đăng nhập vào room Logged
       sails.sockets.join(req, session_id); // Đưa user vừa đăng nhập vào room của chính bản thân user
       sails.sockets.broadcast(session_id, 'user/login-success', { message: "đăng nhập thành công", all_session_data: req.session});
@@ -54,8 +55,16 @@ module.exports = {
   },
   userid: (req,res) => {
     let params = req.allParams();
+
+    if (req.session.user.id && req.session.user.id == params.id) {
+      var edit = 'ok'
+    } else {
+      var edit = 'no'
+    }
     User.findOne({'id':params.id}).exec(function(err,userdata){
-      res.view('admin/user-info',{userdata})
+
+      res.view('admin/user-info',{userdata,edit});
+      
     })
   }
 };

@@ -32,15 +32,9 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': {
-    view: 'homepage'
-  },
-  '/trangchu': {
-    view: 'homepage'
-  },
-  '/admin': {
-    view: 'admin/index'
-  },
+  '/': 'HomepageController.index',
+  '/trangchu': 'HomepageController.index',
+  '/admin': 'AdminController.index',
   '/register': 'LoginController.register',
   '/logout': 'UserController.logout',
   '/admin/post': 'PostController.allposts',

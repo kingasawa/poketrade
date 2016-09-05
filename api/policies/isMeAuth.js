@@ -1,5 +1,5 @@
 /**
- * sessionAuth
+ * isMeAuth
  *
  * @module      :: Policy
  * @description :: Simple policy to allow any authenticated user
@@ -14,7 +14,6 @@ module.exports = function(req, res, next) {
   if (req.session.user_id) {
     return next();
   }
-
   // User is not allowed
   // (default res.forbidden() behavior can be overridden in `config/403.js`)
   return res.redirect('user/login');

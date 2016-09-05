@@ -1,5 +1,5 @@
 /**
- * sessionAuth
+ * isAdminAuth
  *
  * @module      :: Policy
  * @description :: Simple policy to allow any authenticated user
@@ -12,7 +12,10 @@ module.exports = function(req, res, next) {
   // User is allowed, proceed to the next policy,
   // or if this is the last policy, the controller
   if (req.session.user_id) {
-    return next();
+    if (req.session.user.group == 'Admin') {
+      return next();
+    }
+    return res.serverError('Bạn không có quyền truy cập trang này')
   }
 
   // User is not allowed

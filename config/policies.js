@@ -26,7 +26,20 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  // '*': true,
+  '*': true,
+  'LoginController': {
+    '*':true,
+    'index': 'notSessionAuth'
+  },
+  'UserController': {
+    '*': true,
+    'login': true,
+    // 'userid': 'isMeAuth'
+  },
+  'AdminController': {
+    '*': 'isAdminAuth'
+  }
+
 
   /***************************************************************************
   *                                                                          *
