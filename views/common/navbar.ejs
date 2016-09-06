@@ -27,7 +27,7 @@
             <% if(req.session.user.group == 'Admin'){ %>
             <li><a href="/admin"><span class="glyphicon glyphicon-tasks"></span> Đến trang Admin</a></li>
             <% } else { %>
-            <li><a href="/admin/user/<%= req.session.user.id %>"><span class="glyphicon glyphicon-tasks"></span> Chỉnh sửa thông tin</a></li>
+            <li><a href="/view/user/<%= req.session.user.id %>"><span class="glyphicon glyphicon-tasks"></span> Chỉnh sửa thông tin</a></li>
             <% } %>
             <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Đăng Xuất</a></li>
           </ul>

@@ -42,7 +42,8 @@ module.exports.routes = {
   '/admin/thread': 'ThreadController.allthreads',
   '/admin/thread/:id': 'ThreadController.threadid',
   '/admin/user': 'UserController.allusers',
-  '/admin/user/:id': 'UserController.userid'
+  '/admin/user/:id': 'AdminController.userid',
+  '/view/user/:id':'UserController.userid'
 
 
 

@@ -15,6 +15,20 @@ module.exports = {
       testVariable: 'this is test value'
     };
     return res.view('admin/index', data)
+  },
+  userid: (req,res) => {
+    let params = req.allParams();
+
+    // if (req.session.user.id && req.session.user.id == params.id) {
+    //   var edit = 'ok'
+    // } else {
+    //   var edit = 'no'
+    // }
+    User.findOne({'id':params.id}).exec(function(err,userdata){
+
+      res.view('admin/user-info',{userdata,edit});
+
+    })
   }
 };
 

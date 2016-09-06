@@ -26,4 +26,32 @@ $(function() {
     window.location = '/login';
   });
 
+  // x-editable
+  $.fn.editable.defaults.mode = 'inline';
+  user_id = $(".user-info [static-userdata=id]").text();
+  $('.user-info [userdata]').each(function(i,element){
+    var keyToUpdate = $(element).attr('userdata');
+    var title = ($(element).attr('title')) ? $(element).attr('title') : 'Vui lòng nhập để sửa thông tin';
+
+    $(element).editable({
+      
+      type: 'text',
+      url: '/user/' + user_id,
+      pk: '',
+      params: function(params) {
+        var updateText = params['value'];
+        delete params['pk'];
+        delete params['name'];
+        delete params['value'];
+
+        params[keyToUpdate] = updateText;
+
+        return params;
+      }, title: title, ajaxOptions: {
+        type: 'put'
+      }
+    });
+
+  });
+
 });

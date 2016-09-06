@@ -33,7 +33,7 @@ module.exports.policies = {
   },
   'UserController': {
     '*': true,
-    'login': true,
+    'login': true
     // 'userid': 'isMeAuth'
   },
   'AdminController': {

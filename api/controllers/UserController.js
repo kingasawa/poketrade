@@ -26,7 +26,7 @@ module.exports = {
       res.json(200, {result});
 
     }).catch((err) => {
-      res.json(500, {"message": err})
+      res.json(500, {"báo lỗi": err})
     });
   },
   //Xóa toàn bộ session của user khi logout
@@ -40,8 +40,8 @@ module.exports = {
     if (!req.isSocket) {return res.badRequest();}
 
     let params = req.allParams();
-    sails.log('all params', params);
-    User.create({email:params.email,password: params.password,name: params.name}).exec(function() {
+
+    User.create({email:params.email,password: params.password,name: params.name}).exec(function(result) {
       sails.sockets.join(req, params.email);
       sails.sockets.broadcast(params.email,'user/registered');
       return res.ok();
@@ -63,8 +63,8 @@ module.exports = {
     }
     User.findOne({'id':params.id}).exec(function(err,userdata){
 
-      res.view('admin/user-info',{userdata,edit});
-      
+      res.view('user/info',{userdata,edit});
+
     })
   }
 };

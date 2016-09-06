@@ -21,8 +21,7 @@ module.exports = {
     },
     group: {
       type: 'string',
-      enum: ['Member','Moderator','Admin'],
-      defaultsTo: 'member'
+      defaultsTo: 'Member'
     },
     name: {
       type: 'string',
