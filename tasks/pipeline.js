@@ -18,7 +18,7 @@
 //  to change `assets/styles/importer.less` instead.)
 var cssFilesToInject = [
   'styles/**/*.css',
-  'bootstrap/css/bootstrap-editable.css'
+  'bootstrap/css/bootstrap-editable.css',
 ];
 
 
@@ -31,13 +31,14 @@ var jsFilesToInject = [
   'js/plugins/jquery.min.js',
   // Dependencies like jQuery, or Angular are brought in here
   'js/dependencies/**/*.js',
-
   // All of the rest of your client-side js files
   // will be injected here in no particular order.
-  'js/**/*.js',
+
   'js/bootstrap.min.js',
   'js/main.js',
-  'js/bootstrap.editable.min.js'
+  'js/bootstrap.editable.min.js',
+  'ckeditor/ckeditor.js',
+  'js/**/*.js'
 ];
 
 

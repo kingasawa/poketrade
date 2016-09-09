@@ -2,6 +2,7 @@
 
 <div class="container">
   <h2>Danh sách thành viên</h2>
+  <p class="pull-right"><button id="removeid" type="button" class="btn btn-danger">Xóa</button></p>
   <table class="table table-hover">
     <thead>
     <tr>
@@ -18,7 +19,7 @@
     <tbody>
     <% _.each(users, function(user) { %>
     <tr>
-      <td><%= user.id %></td>
+      <td><label class="checkbox-inline"><input name="idCheck[]" type="checkbox" value="<%= user.id %>"></label></td>
       <td><%= user.avatar %></td>
       <td><%= user.name %></td>
       <td><%= user.group  %></td>

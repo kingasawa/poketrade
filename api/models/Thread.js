@@ -13,8 +13,12 @@ module.exports = {
       required: true,
       unique: true
     },
+    desc: {
+      type: 'longtext'
+    },
     thumbnail: {
-      type: 'string'
+      type: 'string',
+      defaultsTo: 'no-image.jpg'
     },
     position: {
       type: 'integer',
@@ -22,7 +26,12 @@ module.exports = {
       defaultsTo: 1
     },
     status: {
-      type: 'boolean'
+      type: 'integer',
+      enum: [0,1],
+      defaultsTo:1
+    },
+    sort: {
+      type: 'integer'
     },
     posts: {
       collection: 'post',

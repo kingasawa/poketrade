@@ -1,8 +1,13 @@
+var usersTable;
+
 $(function() {
+  CKEDITOR.replace('editor1');
+  // CKEDITOR.replace('editor');
   var socket = io.sails.connect();
 
   socket.get('/socket');
 
+  //USER MANAGEMENT
   // Khi submit script này sẽ chuyển data sang dạng socket và gửi đến server
   // UserController sẽ xử lý phần tiếp theo
   $('#login').submit(function (e) {
@@ -23,8 +28,28 @@ $(function() {
     socket.get('/user/register?' + data);
   });
   socket.on('user/registered', function() {
-    window.location = '/login';
+    $('#regModal p').text("Đăng ký thành công, hãy đăng nhập");
+    $('#regModal').modal();
   });
+  socket.on('user/exists', function() {
+    $('#regModal p').text("Đã có người đăng ký tài khoản này");
+    $('#regModal').modal();
+  });
+  //END USER MANAGEMENT
+
+  //THREAD MANAGEMENT
+  $('#create-thread').submit(function (t) {
+    console.log('submit thread');
+    t.preventDefault();
+    var data = $('#create-thread').serialize();
+    socket.get('/thread/create?' + data);
+  });
+
+  socket.on('thread/create',function() {
+    location.reload();
+  });
+
+  //End THREAD MANAGEMENT
 
   // x-editable
   $.fn.editable.defaults.mode = 'inline';
@@ -34,7 +59,6 @@ $(function() {
     var title = ($(element).attr('title')) ? $(element).attr('title') : 'Vui lòng nhập để sửa thông tin';
 
     $(element).editable({
-      
       type: 'text',
       url: '/user/' + user_id,
       pk: '',
@@ -52,6 +76,16 @@ $(function() {
       }
     });
 
+  });
+
+  // Xóa multi ID
+  $("#removeid").click(function(event){
+    event.preventDefault();
+    var searchIDs = $("table input[type=checkbox]:checked").map(function() {
+        return this.value;
+      }).get().join();
+    console.log("admin/userdel?id="+searchIDs);
+    socket.get("/admin/userdel?id="+searchIDs)
   });
 
 });

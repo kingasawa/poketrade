@@ -4,6 +4,8 @@
  * @description :: Server-side logic for managing admins
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
+// import QueryBuilder from 'datatable';
+var QueryBuilder = require('datatable');
 
 module.exports = {
   index: (req,res) => {
@@ -19,16 +21,28 @@ module.exports = {
   userid: (req,res) => {
     let params = req.allParams();
 
-    // if (req.session.user.id && req.session.user.id == params.id) {
-    //   var edit = 'ok'
-    // } else {
-    //   var edit = 'no'
-    // }
     User.findOne({'id':params.id}).exec(function(err,userdata){
 
-      res.view('admin/user-info',{userdata,edit});
+      res.view('admin/user-info',{userdata});
 
     })
+  },
+  userdel: (req,res) => {
+    let params = req.allParams();
+    console.log("check params:"+params);
+    User.destroy({id: [params.id]}).exec(function (err) {
+      if (err) {
+        return res.negotiate(err);
+      }
+      sails.log('xóa thành công : '+params.id);
+      return res.ok();
+    });
+  },
+  postcreate: (req,res) => {
+    Thread.find(function (err, allthreads) {
+      res.view('admin/post',{allthreads})
+    })
   }
+
 };
 

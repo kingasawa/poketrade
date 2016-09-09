@@ -12,6 +12,7 @@ module.exports = {
 
     let params = req.allParams();
     User.login(params.email, params.password).then((result) => {
+
       req.session.user_id = result.id; // Store id vào sess user_id
       req.session.user = result; // store hết user data vào object user trong session
 
@@ -40,12 +41,24 @@ module.exports = {
     if (!req.isSocket) {return res.badRequest();}
 
     let params = req.allParams();
+    User.findOne({email:params.email}).exec(function(err,record) {
+      if (err) {
+        return res.negotiate(err);
+      }
+      if (record) {
+        sails.sockets.join(req, params.email);
+        sails.sockets.broadcast(params.email,'user/exists');
+        return res.status(500,'User already exists!');
+      } else {
+        User.create({email:params.email,password: params.password,name: params.name,birthday:params.birthday}).exec(function(err,result) {
+          if (err) { return res.serverError(err); }
+          sails.sockets.join(req, params.email);
+          sails.sockets.broadcast(params.email,'user/registered');
+          return res.ok();
+        })
+      }
+    });
 
-    User.create({email:params.email,password: params.password,name: params.name}).exec(function(result) {
-      sails.sockets.join(req, params.email);
-      sails.sockets.broadcast(params.email,'user/registered');
-      return res.ok();
-    })
   },
   allusers: (req, res) => {
     User.find(function (err, users) {

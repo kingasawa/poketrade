@@ -39,11 +39,12 @@ module.exports.routes = {
   '/logout': 'UserController.logout',
   '/admin/post': 'PostController.allposts',
   '/admin/post/:id': 'PostController.postid',
-  '/admin/thread': 'ThreadController.allthreads',
+  '/admin/thread': 'ThreadController.index',
   '/admin/thread/:id': 'ThreadController.threadid',
   '/admin/user': 'UserController.allusers',
   '/admin/user/:id': 'AdminController.userid',
-  '/view/user/:id':'UserController.userid'
+  '/view/user/:id':'UserController.userid',
+  '/post/create': 'AdminController.postcreate'
 
 
 

@@ -35,7 +35,8 @@ module.exports = {
       defaultsTo: 'no-avatar.png'
     },
     point: {
-      type: 'integer'
+      type: 'integer',
+      defaultsTo:10
     },
     about: {
       type: 'longtext',

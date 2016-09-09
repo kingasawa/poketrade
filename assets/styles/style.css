@@ -17,6 +17,14 @@
 
 /* Add a gray background color and some padding to the footer */
 footer {
+  margin-top:20px;
   background-color: #f2f2f2;
   padding: 25px;
+}
+table input[type="checkbox"] {
+  position: relative !important;
+}
+
+.thread-form{
+
 }
