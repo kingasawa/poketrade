@@ -1,7 +1,7 @@
 /**
  * Post.js
  *
- * @description :: Quản lý các bài viết.
+ * @description :: Khai báo table Post.
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
  */
 
@@ -10,7 +10,6 @@ module.exports = {
   attributes: {
     title: {
       type: 'string',
-      minLength: 8,
       required: true
     },
     tag: {
@@ -18,31 +17,31 @@ module.exports = {
     },
     thumbnail: {
       type: 'string',
-      required: true
+      defaultsTo: 'no-thumb.jpg'
     },
     description: {
-      type: 'longtext',
-      required: true
+      type: 'longtext'
     },
     content: {
       type: 'longtext',
-      required:true,
-      minLength:20,
-      maxLength:1000
+      required:true
     },
     view: {
-      type: 'integer'
+      type: 'integer',
+      defaultsTo: 0
     },
     rate: {
       type: 'integer'
     },
     status: {
-      type: 'boolean'
+      type: 'integer',
+      enum: [0,1],
+      defaultsTo:1
     },
     owner: {
       model: 'user'
     },
-    allthread: {
+    threads: {
       collection: 'thread',
       via : 'posts'
     }

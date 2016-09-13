@@ -35,7 +35,7 @@ module.exports = {
     },
     posts: {
       collection: 'post',
-      via: 'allthread',
+      via: 'threads',
       dominant: true
     }
   }

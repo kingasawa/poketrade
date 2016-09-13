@@ -34,18 +34,31 @@ module.exports.routes = {
 
   '/': 'HomepageController.index',
   '/trangchu': 'HomepageController.index',
-  '/admin': 'AdminController.index',
+
   '/register': 'LoginController.register',
   '/logout': 'UserController.logout',
-  '/admin/post': 'PostController.allposts',
-  '/admin/post/:id': 'PostController.postid',
+
+  '/admin': 'AdminController.index', //trang chủ admin
+
+  //PHẦN BÀI VIẾT
+  '/admin/post': 'PostController.index', //trang quản lý bài viết
+  '/admin/post/:id': 'PostController.postid', //trang xem bài viết chi tiết , admin sửa được
+  '/post/action': 'AdminController.postcreate', //trang viết nội dung bài viết mới thành viên sử dụng đc
+  '/post/:id': 'PostController.view', //xem bài viết chi tiết , thành viên xem được , không sửa được
+
   '/admin/thread': 'ThreadController.index',
   '/admin/thread/:id': 'ThreadController.threadid',
+
   '/admin/user': 'UserController.allusers',
   '/admin/user/:id': 'AdminController.userid',
   '/view/user/:id':'UserController.userid',
-  '/post/create': 'AdminController.postcreate'
 
+  '/admin/slider': 'SliderController.index',
+
+
+  '/upload': {
+    view: 'upload/index'
+  }
 
 
   /***************************************************************************

@@ -1,10 +1,5 @@
-var usersTable;
-
 $(function() {
-  CKEDITOR.replace('editor1');
-  // CKEDITOR.replace('editor');
   var socket = io.sails.connect();
-
   socket.get('/socket');
 
   //USER MANAGEMENT
@@ -48,8 +43,24 @@ $(function() {
   socket.on('thread/create',function() {
     location.reload();
   });
-
   //End THREAD MANAGEMENT
+
+  //SLIDER MANAGEMENT
+  $('#list_slider .item').first().addClass("active");
+
+
+
+  // $('#create-post').submit(function(s) {
+  //   console.log('submit post');
+  //   s.preventDefault();
+  //   var data = $('#create-post').serialize();
+  //   console.log(data);
+  // });
+
+  socket.on('post/create',function() {
+    alert("Viết bài thành công")
+  });
+  //END POST MANAGEMENT
 
   // x-editable
   $.fn.editable.defaults.mode = 'inline';
@@ -89,3 +100,24 @@ $(function() {
   });
 
 });
+
+// Image Upload with preview
+function showMyImage(fileInput) {
+  var files = fileInput.files;
+  for (var i = 0; i < files.length; i++) {
+    var file = files[i];
+    var imageType = /image.*/;
+    if (!file.type.match(imageType)) {
+      continue;
+    }
+    var img=document.getElementById("thumb");
+    img.file = file;
+    var reader = new FileReader();
+    reader.onload = (function(aImg) {
+      return function(e) {
+        aImg.src = e.target.result;
+      };
+    })(img);
+    reader.readAsDataURL(file);
+  }
+}
