@@ -23,7 +23,8 @@ module.exports = {
       defaultsTo: '#'
     },
     sort: {
-      type: 'integer'
+      type: 'integer',
+      defaultsTo: 1
     },
     status: {
       type: 'integer',

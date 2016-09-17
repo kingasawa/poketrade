@@ -84,3 +84,13 @@ span.review-content {
 .nav-tabs {
   border:none !important;
 }
+select#threads {
+  max-width: 250px;
+}
+select#status {
+  max-width: 100px;
+}
+form#login {
+  background:#fff;
+  padding:20px;
+}

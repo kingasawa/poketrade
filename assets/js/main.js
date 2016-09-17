@@ -50,11 +50,8 @@ $(function() {
 
 
 
-  // $('#create-post').submit(function(s) {
-  //   console.log('submit post');
-  //   s.preventDefault();
-  //   var data = $('#create-post').serialize();
-  //   console.log(data);
+  // $('#create-post').submit(function (t) {
+  //   sails.sockets.join('/thread/create?' + data);
   // });
 
   socket.on('post/create',function() {
