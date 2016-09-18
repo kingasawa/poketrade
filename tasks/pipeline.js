@@ -19,6 +19,8 @@
 var cssFilesToInject = [
   'styles/**/*.css',
   'bootstrap/css/bootstrap-editable.css',
+  'font-awesome/css/font-awesome.min.css'
+
 ];
 
 
