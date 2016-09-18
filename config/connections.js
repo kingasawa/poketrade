@@ -63,6 +63,15 @@ module.exports.connections = {
     database: 'kingproj' //optional
   },
 
+  onlineMysqlServer: {
+    adapter: 'sails-mysql',
+    host: 'sannhuabaclieu.com',
+    port: 3306,
+    user: 'sanc14d1_root', //optional
+    password: 'Diablo321', //optional
+    database: 'sanc14d1_data' //optional
+  }
+
   /***************************************************************************
   *                                                                          *
   * MongoDB is the leading NoSQL database.                                   *
