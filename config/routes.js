@@ -58,8 +58,11 @@ module.exports.routes = {
 
   '/upload': {
     view: 'upload/index'
-  }
+  },
 
+  '/get': {
+    view: 'common/result'
+  }
 
   /***************************************************************************
   *                                                                          *

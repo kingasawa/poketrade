@@ -96,6 +96,16 @@ $(function() {
     socket.get("/admin/userdel?id="+searchIDs)
   });
 
+  //Get Link iTunes API
+  $("#form-getlink").submit(function (g) {
+    event.preventDefault(g);
+    var getData = $("#form-getlink input[type=text]").val();
+    console.log(getData);
+    $.get("https://itunes.apple.com/lookup?id="+getData, function(data) {
+      $("#main").html(data);
+    })
+  })
+
 });
 
 // Image Upload with preview
