@@ -23,14 +23,14 @@
 module.exports.routes = {
 
   /***************************************************************************
-  *                                                                          *
-  * Make the view located at `views/homepage.ejs` (or `views/homepage.jade`, *
-  * etc. depending on your default view engine) your home page.              *
-  *                                                                          *
-  * (Alternatively, remove this and add an `index.html` file in your         *
-  * `assets` directory)                                                      *
-  *                                                                          *
-  ***************************************************************************/
+   *                                                                          *
+   * Make the view located at `views/homepage.ejs` (or `views/homepage.jade`, *
+   * etc. depending on your default view engine) your home page.              *
+   *                                                                          *
+   * (Alternatively, remove this and add an `index.html` file in your         *
+   * `assets` directory)                                                      *
+   *                                                                          *
+   ***************************************************************************/
 
   '/': 'HomepageController.index',
   '/trangchu': 'HomepageController.index',
@@ -42,12 +42,12 @@ module.exports.routes = {
 
   //PHẦN BÀI VIẾT
   '/admin/post': 'PostController.index', //trang quản lý bài viết
-  '/admin/post/:id': 'PostController.postid', //trang xem bài viết chi tiết , admin sửa được
-  '/post/action': 'AdminController.postcreate', //trang viết nội dung bài viết mới thành viên sử dụng đc
+  '/post/action/edit/:id': 'PostController.postid', //trang xem bài viết chi tiết , admin sửa được
+  '/post/action/create': 'AdminController.postcreate', //trang viết nội dung bài viết mới thành viên sử dụng đc
   '/post/:id': 'PostController.view', //xem bài viết chi tiết , thành viên xem được , không sửa được
 
   '/admin/thread': 'ThreadController.index',
-  '/admin/thread/:id': 'ThreadController.threadid',
+  '/admin/thread/edit/:id': 'ThreadController.threadid',
 
   '/admin/user': 'UserController.allusers',
   '/admin/user/:id': 'AdminController.userid',
@@ -65,13 +65,13 @@ module.exports.routes = {
   }
 
   /***************************************************************************
-  *                                                                          *
-  * Custom routes here...                                                    *
-  *                                                                          *
-  * If a request to a URL doesn't match any of the custom routes above, it   *
-  * is matched against Sails route blueprints. See `config/blueprints.js`    *
-  * for configuration options and examples.                                  *
-  *                                                                          *
-  ***************************************************************************/
+   *                                                                          *
+   * Custom routes here...                                                    *
+   *                                                                          *
+   * If a request to a URL doesn't match any of the custom routes above, it   *
+   * is matched against Sails route blueprints. See `config/blueprints.js`    *
+   * for configuration options and examples.                                  *
+   *                                                                          *
+   ***************************************************************************/
 
 };

@@ -16,12 +16,12 @@
       <tbody>
       <% _.each(posts, function(post) { %>
       <tr id="thread-id">
-        <td class="post-title"><a href="/admin/post/<%= post.id %>"><%= post.title %></a></td>
+        <td class="post-title"><a href="/post/action/edit/<%= post.id %>"><%= post.title %></a></td>
         <td class="post-description"><%= post.description %></td>
         <td class="post-status">
           <% if (post.status == 0) { %> Không <% } else { %> Có <% } %>
         </td>
-        <td class="post-edit"><a href="#"><span class="glyphicon glyphicon-pencil"></span></a></td>
+        <td class="post-edit"><a href="/post/action/edit/<%= post.id %>"><span class="glyphicon glyphicon-pencil"></span></a></td>
       </tr>
       <% }) %>
       </tbody>

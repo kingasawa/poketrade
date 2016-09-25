@@ -19,19 +19,34 @@ module.exports = {
     let params = req.allParams();
     Thread.create(params).exec(function(err,result) {
       if (err) { return res.serverError(err); }
-      console.log(result);
       sails.sockets.blast('thread/create',result);
       return res.ok();
     })
-  }
+  },
 
-  // edit: (req,res) => {
-  //
-  // },
-  //
-  // view: (req,res) => {
-  //
-  // }
+  threadid: (req,res) => {
+    let threadId = req.params.id;
+
+    Thread.findOne({id:threadId}).exec(function(err,findThread){
+      if (err){return res.serverError(err)}
+      if (!findThread) {
+        return res.notFound('Không tìm thấy chủ đề , thử lại với ID khác')
+      }
+      return res.view('admin/thread_edit',{findThread});
+
+    });
+  },
+
+  edit: (req,res)=> {
+    if (!req.isSocket) {return res.badRequest();}
+
+    let params = req.allParams();
+    sails.sockets.join(req,params.name);
+    Thread.update({id:params.id},params).exec(function(err,result){
+      if (err) {return res.serverError(err)}
+      sails.sockets.broadcast(params.name,'edit-success/thread',result)
+    });
+  }
 
 };
 

@@ -43,6 +43,20 @@ $(function() {
   socket.on('thread/create',function() {
     location.reload();
   });
+
+  $('#edit-thread').submit(function (t) {
+    console.log('Submit Edit Thread');
+    t.preventDefault();
+    var data = $('#edit-thread').serialize();
+    socket.get('/thread/edit?' + data);
+  });
+
+  socket.on('edit-success/thread',function(){
+    $('#edit-thread-alert').addClass('alert alert-success')
+      .append('<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>'+
+              '<strong>Cập nhật :</strong> Bạn đã cập nhật chủ đề thành công');
+  });
+
   //End THREAD MANAGEMENT
 
   //SLIDER MANAGEMENT
@@ -53,6 +67,7 @@ $(function() {
   // $('#create-post').submit(function (t) {
   //   sails.sockets.join('/thread/create?' + data);
   // });
+
 
   socket.on('post/create',function() {
     alert("Viết bài thành công")

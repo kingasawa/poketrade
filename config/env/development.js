@@ -19,7 +19,7 @@ module.exports = {
 
   models: {
     // connection: 'someMysqlServer'
-    connection: 'onlineMysqlServer'
+    connection: 'someMysqlServer'
   }
 
 };
