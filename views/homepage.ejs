@@ -1,6 +1,6 @@
 <%- partial ('common/navbar.ejs') %>
-<div class="container">
-    <div class="col-sm-8">
+
+
 
       <!--begin carousel-->
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -29,73 +29,32 @@
           <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
         </a>
-      </div><hr>
+      </div>
       <!--end carousel-->
       <!--feature post-->
 
-      <div class="row">
-        <% _.each(posts, function(post) { %>
-        <div class="col-sm-4">
-          <img src="<%= post.thumbnail %>" alt="" width="100%">
-          <p class="post">
-          <span class="title"><strong><%= post.title %></strong></span>
 
-          </p>
-        </div>
-        <% }) %>
-        <!--end feature post-->
-      </div><hr>
-
+<div class="container text-center">
+  <h3>CHỌN LOẠI ĐỊA ĐIỂM BẠN MUỐN XEM</h3><br>
+  <div class="row">
+    <div class="col-sm-4">
+      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+      <p>Current Project</p>
     </div>
-    <div class="col-sm-4 top-review">
-
-        <h2>Top Review</h2>
-        <ul class="nav nav-tabs">
-          <li class="active"><a data-toggle="tab" href="#home">Ăn Ngon</a></li>
-          <li><a data-toggle="tab" href="#menu1">Giải Khát</a></li>
-          <li><a data-toggle="tab" href="#menu2">Vui Chơi</a></li>
-        </ul>
-      <div class="tab-content">
-          <div id="home" class="tab-pane fade in active">
-            <ul class="list-group">
-              <li class="list-group-item">
-                <div class="hinh"><img src="http://cdn01.diadiemanuong.com/ddau/080x/hem-an-vat-76-hai-ba-trung-43a4e196635966636787291160.jpg" class="img-rounded" alt="Cinque Terre" width="50" height="50"></div>
-                <div class="noidung">
-                  <span class="review-title">Hẻm ăn vặt giá rẻ</span>
-                  <span class="review-content">Hẻm này toàn bán đồ ăn vặt thôi, mấy bạn đến ăn chạy xe thẳng vào trong hẻm. </span>
-                </div>
-              </li>
-              <li class="list-group-item">
-                <div class="hinh"><img src="http://cdn01.diadiemanuong.com/ddau/080x/hem-an-vat-76-hai-ba-trung-43a4e196635966636787291160.jpg" class="img-rounded" alt="Cinque Terre" width="50" height="50"></div>
-                <div class="noidung">
-                  <span class="review-title">Hẻm ăn vặt giá rẻ</span>
-                  <span class="review-content">Hẻm này toàn bán đồ ăn vặt thôi, mấy bạn đến ăn chạy xe thẳng vào trong hẻm. </span>
-                </div>
-              </li><li class="list-group-item">
-                <div class="hinh"><img src="http://cdn01.diadiemanuong.com/ddau/080x/hem-an-vat-76-hai-ba-trung-43a4e196635966636787291160.jpg" class="img-rounded" alt="Cinque Terre" width="50" height="50"></div>
-                <div class="noidung">
-                  <span class="review-title">Hẻm ăn vặt giá rẻ</span>
-                  <span class="review-content">Hẻm này toàn bán đồ ăn vặt thôi, mấy bạn đến ăn chạy xe thẳng vào trong hẻm. </span>
-                </div>
-              </li>
-              <li class="list-group-item text-center">Xem thêm</li>
-            </ul>
-          </div>
-          <div id="menu1" class="tab-pane fade">
-
-            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          </div>
-          <div id="menu2" class="tab-pane fade">
-
-            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-          </div>
-
-
+    <div class="col-sm-4">
+      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+      <p>Project 2</p>
+    </div>
+    <div class="col-sm-4">
+      <div class="well">
+        <p>Some text..</p>
+      </div>
+      <div class="well">
+        <p>Some text..</p>
       </div>
     </div>
-
-
   </div>
+</div>
 
 
 <%- partial ('common/footer.ejs') %>

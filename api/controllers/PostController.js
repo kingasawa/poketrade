@@ -35,7 +35,7 @@ module.exports = {
         }).exec(function(err,result) {
           if (err) { return res.serverError(err); }
           // console.log(result);
-          return res.json(result);
+          return res.redirect('admin/post');
         })
       });
   },

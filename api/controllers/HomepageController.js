@@ -15,41 +15,24 @@ module.exports = {
       textVersion: '1.0.1'
     };
 
-    // Slider.find(function (err, sliders) {
-    //   console.log("sliders",sliders);
-    //   Post.find(function (err,posts) {
-    //     console.log("posts",posts);
-    //     return res.view("homepage",{sliders,posts})
-    //   });
-    // });
-
-
-
     let findSliderDone = new Promise((resolve, reject) => {
       Slider.find().exec((err, sliders) => {
-          if (err) {
-            reject(err)
-          }
+          if (err) {reject(err)}
           resolve(sliders);
-        }
-      )
+        })
     });
     let findPostDone = new Promise((resolve, reject) => {
       Post.find().exec((err, posts) => {
-          if (err) {
-            reject(err)
-          }
+          if (err) {reject(err)}
           resolve(posts);
-        }
-      )
+        })
     });
-      async function concurrent() {
-      var [sliders] = await Promise.all([findSliderDone]);
-      var [posts] = await Promise.all([findPostDone]);
-        console.log("data send",sliders,posts);
-        return res.view("homepage", {sliders,posts})
-      }
-    concurrent()
+    (async () => {
+      var [sliders,posts] = await Promise.all([findSliderDone,findPostDone]);
+      return res.view("homepage", {sliders,posts})
+      })
+    ()
   }
 };
 
+// xai cai settings cua tui di nhin dep hon

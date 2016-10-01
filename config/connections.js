@@ -28,24 +28,10 @@ module.exports.connections = {
   * Installed by default.                                                    *
   *                                                                          *
   ***************************************************************************/
-  // localDiskDb: {
-  //   adapter: 'sails-disk'
-  // },
-  //
-  // models: {
-  //   connection: 'mysqldb',
-  //   migrate: 'safe'//drop no xoa het:s cho no sach
-  // },
-  // connections: {
-  //   mysqldb: {
-  //     adapter: 'sails-mysql',
-  //     host: 'crm.taovang.vn',
-  //     port: 3308,
-  //     user: 'root', //optional
-  //     password: 'TaoVang!9999', //optional
-  //     database: 'kingproj' //optional
-  //   }
-  // }
+  localDiskDb: {
+    adapter: 'sails-disk'
+  },
+
   /***************************************************************************
   *                                                                          *
   * MySQL is the world's most popular relational database.                   *
@@ -54,23 +40,13 @@ module.exports.connections = {
   * Run: npm install sails-mysql                                             *
   *                                                                          *
   ***************************************************************************/
-  someMysqlServer: {
-    adapter: 'sails-mysql',
-    host: 'crm.taovang.vn',
-    port: 3308,
-    user: 'root', //optional
-    password: 'TaoVang!9999', //optional
-    database: 'kingproj' //optional
-  },
-
-  onlineMysqlServer: {
-    adapter: 'sails-mysql',
-    host: 'sannhuabaclieu.com',
-    port: 3306,
-    user: 'sanc14d1_root', //optional
-    password: 'Diablo321', //optional
-    database: 'sanc14d1_data' //optional
-  }
+  // someMysqlServer: {
+  //   adapter: 'sails-mysql',
+  //   host: 'YOUR_MYSQL_SERVER_HOSTNAME_OR_IP_ADDRESS',
+  //   user: 'YOUR_MYSQL_USER', //optional
+  //   password: 'YOUR_MYSQL_PASSWORD', //optional
+  //   database: 'YOUR_MYSQL_DB' //optional
+  // },
 
   /***************************************************************************
   *                                                                          *
