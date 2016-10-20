@@ -30,49 +30,6 @@ $(function() {
     $('#regModal p').text("Đã có người đăng ký tài khoản này");
     $('#regModal').modal();
   });
-  //END USER MANAGEMENT
-
-  //THREAD MANAGEMENT
-  $('#create-thread').submit(function (t) {
-    console.log('submit thread');
-    t.preventDefault();
-    var data = $('#create-thread').serialize();
-    socket.get('/thread/create?' + data);
-  });
-
-  socket.on('thread/create',function() {
-    location.reload();
-  });
-
-  $('#edit-thread').submit(function (t) {
-    console.log('Submit Edit Thread');
-    t.preventDefault();
-    var data = $('#edit-thread').serialize();
-    socket.get('/thread/edit?' + data);
-  });
-
-  socket.on('edit-success/thread',function(){
-    $('#edit-thread-alert').addClass('alert alert-success')
-      .append('<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>'+
-              '<strong>Cập nhật :</strong> Bạn đã cập nhật chủ đề thành công');
-  });
-
-  //End THREAD MANAGEMENT
-
-  //SLIDER MANAGEMENT
-  $('#list_slider .item').first().addClass("active");
-
-
-
-  // $('#create-post').submit(function (t) {
-  //   sails.sockets.join('/thread/create?' + data);
-  // });
-
-
-  socket.on('post/create',function() {
-    alert("Viết bài thành công")
-  });
-  //END POST MANAGEMENT
 
   // x-editable
   $.fn.editable.defaults.mode = 'inline';
@@ -105,21 +62,13 @@ $(function() {
   $("#removeid").click(function(event){
     event.preventDefault();
     var searchIDs = $("table input[type=checkbox]:checked").map(function() {
-        return this.value;
-      }).get().join();
+      return this.value;
+    }).get().join();
     console.log("admin/userdel?id="+searchIDs);
     socket.get("/admin/userdel?id="+searchIDs)
   });
-
-  //Get Link iTunes API
-  $("#form-getlink").submit(function (g) {
-    event.preventDefault(g);
-    var getData = $("#form-getlink input[type=text]").val();
-    console.log(getData);
-    $.get("https://itunes.apple.com/lookup?id="+getData, function(data) {
-      $("#main").html(data);
-    })
-  })
+  
+  //END USER MANAGEMENT
 
 });
 

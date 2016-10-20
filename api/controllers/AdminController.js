@@ -29,23 +29,20 @@ module.exports = {
   },
   userdel: (req,res) => {
     let params = req.allParams();
-    console.log("check params:"+params);
+    console.log("check params:",params);
     User.destroy({id: [params.id]}).exec(function (err) {
       if (err) {
         return res.negotiate(err);
       }
       sails.log('xóa thành công : '+params.id);
-      return res.ok();
+      return res.redirect('admin/user');
     });
   },
-  postcreate: (req,res) => {
-    Thread.find(function (err, allthreads) {
-      res.view('admin/post',{allthreads})
-    })
+
+  addmatch: (req,res) => {
+    return res.view("match/add")
   }
 
-
-  
 
 };
 

@@ -40,21 +40,11 @@ module.exports.routes = {
 
   '/admin': 'AdminController.index', //trang chủ admin
 
-  //PHẦN BÀI VIẾT
-  '/admin/post': 'PostController.index', //trang quản lý bài viết
-  '/post/action/edit/:id': 'PostController.postid', //trang xem bài viết chi tiết , admin sửa được
-  '/post/action/create': 'AdminController.postcreate', //trang viết nội dung bài viết mới thành viên sử dụng đc
-  '/post/view/:id': 'PostController.view', //xem bài viết chi tiết , thành viên xem được , không sửa được
-
-  '/admin/thread': 'ThreadController.index',
-  '/admin/thread/edit/:id': 'ThreadController.threadid',
-
   '/admin/user': 'UserController.allusers',
   '/admin/user/:id': 'AdminController.userid',
+  '/admin/user/del/:id': 'AdminController.userdel',
   '/view/user/:id':'UserController.userid',
-
-  '/admin/slider': 'SliderController.index',
-
+  '/admin/match/add':'AdminController.addmatch',
 
   '/upload': {
     view: 'upload/index'
